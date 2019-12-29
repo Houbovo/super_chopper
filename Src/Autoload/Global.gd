@@ -9,6 +9,9 @@ var score: = 0 setget set_score
 var deaths: = 0 setget set_deaths
 const speed = 100
 const start_position = Vector2(100, 100)
+var fw_speed = 20
+var bullets_no: int = 0
+const chopper_size = Vector2(32, 16)
 
 
 func reset():

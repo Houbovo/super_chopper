@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/Actors/Enemies/PanzerBullet.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Actors/Enemies/panzer-bullet.png" type="Texture" id=2]
+
+[node name="PanzerBullet" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -1.52804, -1.46636, -1.52804, -0.115117, -0.11246, 1.42916, 1.43181, 0.238779, -0.0159426, -1.5307 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.52804, -1.46636, -1.52804, -0.115117, -0.11246, 1.42916, 1.43181, 0.238779, -0.0159426, -1.5307 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
