@@ -40,15 +40,27 @@ position = Vector2( 303.633, 196.346 )
 position = Vector2( 622.494, 122.823 )
 
 [node name="Panzer4" parent="Panzers" instance=ExtResource( 6 )]
-position = Vector2( 704.622, 218.488 )
+position = Vector2( 718.585, 175.646 )
 
 [node name="Panzer5" parent="Panzers" instance=ExtResource( 6 )]
 position = Vector2( 525.927, 193.218 )
 
+[node name="Panzer6" parent="Panzers" instance=ExtResource( 6 )]
+position = Vector2( 846.843, 184.424 )
+
 [node name="Rockets" type="Node2D" parent="."]
 
-[node name="KinematicBody2D" parent="Rockets" instance=ExtResource( 7 )]
-position = Vector2( 406.396, 208.357 )
+[node name="Rocket" parent="Rockets" instance=ExtResource( 7 )]
+position = Vector2( 408.957, 201.699 )
 
-[node name="KinematicBody2D2" parent="Rockets" instance=ExtResource( 7 )]
-position = Vector2( 370.564, 186.148 )
+[node name="Rocket2" parent="Rockets" instance=ExtResource( 7 )]
+position = Vector2( 463.371, 227.366 )
+
+[node name="Rocket3" parent="Rockets" instance=ExtResource( 7 )]
+position = Vector2( 513.679, 232.5 )
+
+[node name="Rocket4" parent="Rockets" instance=ExtResource( 7 )]
+position = Vector2( 571.173, 217.613 )
+
+[node name="Rocket5" parent="Rockets" instance=ExtResource( 7 )]
+position = Vector2( 664.601, 207.346 )

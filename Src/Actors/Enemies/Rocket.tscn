@@ -23,4 +23,9 @@ physics_process_parent = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -3.95156, 7.78081, -4.0835, 3.88853, -2.17035, 1.7115, -2.17035, -6.99665, -0.12525, -8.11816, 1.98582, -7.1286, 2.11776, 1.84344, 4.03091, 4.08645, 4.09688, 7.78081 )
+
+[node name="FlyTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
+[connection signal="timeout" from="FlyTimer" to="." method="_on_FlyTimer_timeout"]

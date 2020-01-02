@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Actors/Chopper/bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.50204, 0.524454 )
+extents = Vector2( 1.48394, 0.495247 )
 
 [node name="Bullet" type="KinematicBody2D"]
 collision_layer = 4

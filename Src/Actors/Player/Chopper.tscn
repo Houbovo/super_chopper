@@ -29,7 +29,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="BulletPosition" type="Position2D" parent="."]
-position = Vector2( 18.0069, 4.37062 )
+position = Vector2( 22.8483, 4.37062 )
 
 [node name="BulletTimer" type="Timer" parent="."]
 one_shot = true
