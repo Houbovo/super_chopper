@@ -1,20 +1,29 @@
 extends KinematicBody2D
 
-var speed: = 200
+var velocity: Vector2 = Vector2(200, 0)
+var grav: = 300
+
 
 func _physics_process(delta: float) -> void:
-	self.position.x += delta * speed
+	velocity.y += grav * delta
+	self.position.x += delta * velocity.x
+	self.position.y += velocity.y * delta
 
 
 func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:
 	if body != self:
 		if body.get_collision_layer_bit(1) == true:
 			body.die()
-		queue_free()
+		die()
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	die()
+	queue_free()
+
 
 func die() -> void:
 	queue_free()
+
+
+
+

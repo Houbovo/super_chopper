@@ -31,5 +31,11 @@ shape = SubResource( 2 )
 [node name="BulletPosition" type="Position2D" parent="."]
 position = Vector2( 22.8483, 4.37062 )
 
+[node name="MiniRocketPosition" type="Position2D" parent="."]
+position = Vector2( 16.2899, 9.52806 )
+
 [node name="BulletTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MiniRocketTimer" type="Timer" parent="."]
 one_shot = true

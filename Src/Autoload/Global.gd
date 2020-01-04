@@ -6,17 +6,16 @@ signal died
 signal reset
 
 var score: = 0 setget set_score
-var deaths: = 0 setget set_deaths
+var lives: = 5 setget set_lives
 const speed = 100
 const start_position = Vector2(100, 100)
 var fw_speed = 20
-var bullets_no: int = 0
 const chopper_size = Vector2(32, 16)
 
 
 func reset():
 	self.score = 0
-	self.deaths = 0
+	self.lives = 5
 	emit_signal("reset")
 
 
@@ -25,6 +24,6 @@ func set_score(new_score: int) -> void:
 	emit_signal("updated")
 
 
-func set_deaths(new_value: int) -> void:
-	deaths = new_value
+func set_lives(new_value: int) -> void:
+	lives = new_value
 	emit_signal("died")

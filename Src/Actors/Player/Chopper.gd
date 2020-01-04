@@ -1,16 +1,18 @@
 extends KinematicBody2D
 
 var Bullet = preload("res://Src/Actors/Player/Bullet.tscn")
+var MiniRocket = preload("res://Src/Actors/Player/MiniRocket.tscn")
+
 
 func _ready() -> void:
 	position = Global.start_position
 	$AnimatedSprite.play()
 	show()
 
-func _process(delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
 	var velocity = Vector2()
-	var last_shot: float = 99
-	# var cam_pos_x = get_node("../Camera2D").position.x
+	# moving in left half of the screen, still moving forward
 	if (Input.is_action_pressed("ui_right")) and (self.position.x < get_node("../Camera2D").position.x + 200 ):
 		velocity.x += 1
 	if (Input.is_action_pressed("ui_left")) and (self.position.x > get_node("../Camera2D").position.x + Global.chopper_size.x / 2):
@@ -24,20 +26,43 @@ func _process(delta: float) -> void:
 	position.y += velocity.y * delta
 	position.x += (velocity.x + Global.fw_speed) * delta
 	
-	if Input.is_action_pressed("ui_shoot") and Global.bullets_no < 4 and $BulletTimer.is_stopped() == true:
-		shoot()
+	if Input.is_action_pressed("ui_shoot"):
+		bullet_shoot()
+		minirocket_shoot()
 
 
+# only 4 bullets on screen, shot after some time
+func bullet_shoot() -> void:
+	if $BulletTimer.is_stopped() == true:
+		if count_nodes("Bullet") < 4:
+			var bullet = Bullet.instance()
+			bullet.position = ($BulletPosition as Position2D).global_position
+			get_parent().add_child(bullet)
+			$BulletTimer.start(0.1)
 
-func shoot() -> void:
-	var bullet = Bullet.instance()
-	bullet.position = ($BulletPosition as Position2D).global_position
-	get_parent().add_child(bullet)
-	Global.bullets_no += 1
-	$BulletTimer.start( 0.1 )
-	
+
+# only 2 minirockets on screen, shot after some time
+func minirocket_shoot() -> void:
+	if $MiniRocketTimer.is_stopped() == true:
+		if count_nodes("MiniRocket") < 2:
+			var minirocket = MiniRocket.instance()
+			minirocket.position = ($MiniRocketPosition as Position2D).global_position
+			get_parent().add_child(minirocket)
+			$MiniRocketTimer.start(0.3)
+
+
+# get number of bullets/minirockets from level node
+func count_nodes(nodename: String) -> int:
+	var number: int = 0
+	for node in get_parent().get_children():
+		if nodename in node.name:
+			number += 1
+	return number
+
 
 func die() -> void:
 	call_deferred("set", $CollisionShape2D.disabled, true ) 
 	Global.fw_speed = 0
+	Global.lives -= 1
 	queue_free()
+	

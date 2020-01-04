@@ -3,12 +3,16 @@ extends KinematicBody2D
 var fly: bool = false
 var speed: int = 100
 
+
 func _ready() -> void:
 	randomize()
 
-func _process(delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
+	# when "unpaused" fly up
 	if fly == true:
 		self.position.y -= delta * speed
+
 
 func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:
 	if body != self:
@@ -16,18 +20,18 @@ func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:
 			body.die()
 		queue_free()
 
-
+# fly with some probability after some time when enters screen
 func _on_VisibilityEnabler2D_screen_entered() -> void:
 	var fly_time: = int(rand_range(1, 40))
-	print(self.name)
-	print( fly_time )
 	if fly_time < 20:
 		$FlyTimer.start( fly_time )
 
 
+# timer to fly
 func _on_FlyTimer_timeout() -> void:
 	fly = true
 
 
 func die() -> void:
+	Global.score += 100
 	queue_free()
