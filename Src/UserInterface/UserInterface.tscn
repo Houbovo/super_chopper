@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/UserInterface/UserInterface.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Misc/prstartk.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Src/UserInterface/Lifebar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/UserInterface/Fuel.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 8
@@ -12,17 +14,28 @@ font_data = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="Score" type="Label" parent="."]
-margin_left = 15.0
+margin_left = 16.0
 margin_top = 15.0
-margin_right = 215.0
-margin_bottom = 31.0
+margin_right = 88.0
+margin_bottom = 23.0
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
 text = "Score: %s"
+align = 2
+valign = 2
 
-[node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 285.851
-margin_top = 5.94397
-margin_right = 325.851
-margin_bottom = 45.944
+[node name="Lifebar" parent="." instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -112.43
+margin_top = 16.4633
+margin_right = -16.4304
+margin_bottom = 24.4633
+
+[node name="Fuel" parent="." instance=ExtResource( 4 )]
+rect_scale = Vector2( 1, 1.00974 )

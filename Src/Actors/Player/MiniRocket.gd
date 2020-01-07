@@ -4,6 +4,10 @@ var velocity: Vector2 = Vector2(200, 0)
 var grav: = 300
 
 
+func _ready() -> void:
+	$AudioStreamPlayer2D.play()
+
+
 func _physics_process(delta: float) -> void:
 	velocity.y += grav * delta
 	self.position.x += delta * velocity.x

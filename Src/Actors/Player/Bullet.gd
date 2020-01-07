@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 var speed: = 200
 
+func _ready() -> void:
+	$AudioStreamPlayer2D.play()
+
+
 func _physics_process(delta: float) -> void:
 	self.position.x += delta * speed
 

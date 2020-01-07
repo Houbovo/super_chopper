@@ -2,33 +2,44 @@ extends KinematicBody2D
 
 var Bullet = preload("res://Src/Actors/Player/Bullet.tscn")
 var MiniRocket = preload("res://Src/Actors/Player/MiniRocket.tscn")
+var fuel_comsum: int = 10
 
 
 func _ready() -> void:
 	position = Global.start_position
 	$AnimatedSprite.play()
+	($SoundFly as AudioStreamPlayer2D).play()
 	show()
 
 
 func _physics_process(delta: float) -> void:
 	var velocity = Vector2()
-	# moving in left half of the screen, still moving forward
-	if (Input.is_action_pressed("ui_right")) and (self.position.x < get_node("../Camera2D").position.x + 200 ):
-		velocity.x += 1
-	if (Input.is_action_pressed("ui_left")) and (self.position.x > get_node("../Camera2D").position.x + Global.chopper_size.x / 2):
-		velocity.x -= 1
-	if (Input.is_action_pressed("ui_up")) and (self.position.y > get_node("../Camera2D").position.y + Global.chopper_size.y / 2):
-		velocity.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * Global.speed
-	position.y += velocity.y * delta
-	position.x += (velocity.x + Global.fw_speed) * delta
+		# moving in left half of the screen, still moving forward
+	if Global.fuel > 0:
+		if (Input.is_action_pressed("ui_right")) and (self.position.x < get_node("../Camera2D").position.x + 200 ):
+			velocity.x += 1
+		if (Input.is_action_pressed("ui_left")) and (self.position.x > get_node("../Camera2D").position.x + Global.chopper_size.x / 2):
+			velocity.x -= 1
+		if (Input.is_action_pressed("ui_up")) and (self.position.y > get_node("../Camera2D").position.y + Global.chopper_size.y / 2):
+			velocity.y -= 1
+		if Input.is_action_pressed("ui_down"):
+			velocity.y += 1
+		if velocity.length() > 0:
+			velocity = velocity.normalized() * Global.speed
+		position.y += velocity.y * delta
+		position.x += (velocity.x + Global.fw_speed) * delta
+	else:
+		position.x += Global.fw_speed * delta
+		position.y += Global.fw_speed * delta
 	
+	# now are bullets and minirockets shot by one key
 	if Input.is_action_pressed("ui_shoot"):
 		bullet_shoot()
 		minirocket_shoot()
+	
+	# Fuel consumption
+	if Global.fuel >= 0:
+		Global.fuel -= fuel_comsum * delta
 
 
 # only 4 bullets on screen, shot after some time
@@ -59,10 +70,11 @@ func count_nodes(nodename: String) -> int:
 			number += 1
 	return number
 
-
+# when die, stop camera, play animation TBD, etc.
 func die() -> void:
 	call_deferred("set", $CollisionShape2D.disabled, true ) 
-	Global.fw_speed = 0
+#	Global.fw_speed = 0
 	Global.lives -= 1
 	queue_free()
+	get_tree().reload_current_scene()
 	

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bullet.ogg-db6a758e18a933920f4136a2022ff743.oggstr"
+
+[deps]
+
+source_file="res://Assets/Actors/Chopper/bullet.ogg"
+dest_files=[ "res://.import/bullet.ogg-db6a758e18a933920f4136a2022ff743.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

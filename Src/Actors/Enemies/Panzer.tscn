@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/Actors/Enemies/panzer.png" type="Texture" id=2]
 
 [node name="Panzer" type="KinematicBody2D"]
-position = Vector2( 0.94693, -8.25185 )
 collision_layer = 2
 collision_mask = 15
 script = ExtResource( 1 )
@@ -47,4 +46,5 @@ position = Vector2( -10, -7 )
 one_shot = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

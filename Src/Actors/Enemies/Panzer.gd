@@ -6,6 +6,7 @@ var Bullet = preload("res://Src/Actors/Enemies/PanzerBullet.tscn")
 func _ready() -> void:
 	randomize()
 
+
 func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:
 	if body != self:
 		if body.get_collision_layer_bit(0) == true or body.get_collision_layer_bit(1) == true:
@@ -18,6 +19,12 @@ func _on_VisibilityEnabler2D_screen_entered() -> void:
 	if shoot_time < 20:
 		$ShootTimer.start( shoot_time )
 
+
+# not needed anymore, free it
+func _on_VisibilityEnabler2D_screen_exited() -> void:
+	queue_free()
+
+
 # timer to shoot
 func _on_ShootTimer_timeout() -> void:
 	var Pbullet = Bullet.instance()
@@ -28,10 +35,3 @@ func _on_ShootTimer_timeout() -> void:
 func die() -> void:
 	Global.score += 100
 	queue_free()
-
-
-
-
-
-
-
