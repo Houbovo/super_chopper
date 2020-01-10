@@ -49,6 +49,7 @@ text = "Super Chopper"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 240, 70 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Label2" type="Label" parent="."]
@@ -81,4 +82,50 @@ grow_horizontal = 2
 custom_fonts/font = SubResource( 4 )
 text = "Arrows/WASD to move
 Space/Z/X/Enter to shoot"
+align = 1
+
+[node name="Label6" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -95.0735
+margin_top = 65.8659
+margin_right = 96.9265
+margin_bottom = 95.8659
+grow_horizontal = 2
+custom_fonts/font = SubResource( 4 )
+text = "1 - change screen size
+2 - mute music
+3 - mute sounds"
+align = 1
+
+[node name="Label4" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -233.597
+margin_top = 113.122
+margin_right = -41.5975
+margin_bottom = 132.122
+grow_horizontal = 2
+custom_fonts/font = SubResource( 4 )
+text = "Code/Design/Graphics
+Jiri Vavra"
+align = 1
+
+[node name="Label5" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 39.281
+margin_top = 113.122
+margin_right = 231.281
+margin_bottom = 132.122
+grow_horizontal = 2
+custom_fonts/font = SubResource( 4 )
+text = "Music/SFX
+Vladimir Mariachi Dulava"
 align = 1

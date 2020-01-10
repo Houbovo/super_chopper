@@ -1,17 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Src/Levels/Level01.gd" type="Script" id=1]
-[ext_resource path="res://assets/Background/background.png" type="Texture" id=2]
-[ext_resource path="res://Src/UserInterface/UserInterface.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Misc/rocks-bottom.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/actors/Player/Chopper.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Src/Misc/Camera2D.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Src/Actors/Enemies/Panzer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Src/Actors/Enemies/Rocket.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Src/Actors/Enemies/FuelTank.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Background/background.png" type="Texture" id=1]
+[ext_resource path="res://Src/UserInterface/UserInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Actors/Player/Chopper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Misc/Camera2D.tscn" type="PackedScene" id=4]
 
 [node name="Level01" type="Node2D"]
-script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -20,65 +14,19 @@ motion_scale = Vector2( 0.5, 1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 0.713501, -0.713486 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UserInterface" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="UserInterface" parent="CanvasLayer" instance=ExtResource( 2 )]
 
-[node name="rocks-bottom" parent="." instance=ExtResource( 4 )]
+[node name="Chopper" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72.4083, 106.451 )
 
-[node name="Chopper" parent="." instance=ExtResource( 5 )]
-position = Vector2( 100, 100 )
-
-[node name="Camera2D" parent="." instance=ExtResource( 6 )]
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
 process_mode = 0
 
-[node name="Panzers" type="Node2D" parent="."]
-
-[node name="Panzer" parent="Panzers" instance=ExtResource( 7 )]
-position = Vector2( 338.929, 206.999 )
-
-[node name="Panzer2" parent="Panzers" instance=ExtResource( 7 )]
-position = Vector2( 303.633, 196.346 )
-
-[node name="Panzer3" parent="Panzers" instance=ExtResource( 7 )]
-position = Vector2( 622.494, 122.823 )
-
-[node name="Panzer4" parent="Panzers" instance=ExtResource( 7 )]
-position = Vector2( 718.585, 175.646 )
-
-[node name="Panzer5" parent="Panzers" instance=ExtResource( 7 )]
-position = Vector2( 525.927, 193.218 )
-
-[node name="Panzer6" parent="Panzers" instance=ExtResource( 7 )]
-position = Vector2( 846.843, 184.424 )
-
-[node name="Rockets" type="Node2D" parent="."]
-
-[node name="Rocket" parent="Rockets" instance=ExtResource( 8 )]
-position = Vector2( 408.957, 201.699 )
-
-[node name="Rocket2" parent="Rockets" instance=ExtResource( 8 )]
-position = Vector2( 463.371, 227.366 )
-
-[node name="Rocket3" parent="Rockets" instance=ExtResource( 8 )]
-position = Vector2( 513.679, 232.5 )
-
-[node name="Rocket4" parent="Rockets" instance=ExtResource( 8 )]
-position = Vector2( 571.173, 217.613 )
-
-[node name="Rocket5" parent="Rockets" instance=ExtResource( 8 )]
-position = Vector2( 664.601, 207.346 )
-
-[node name="FuelTanks" type="Node2D" parent="."]
-position = Vector2( 230.762, 215.886 )
-
-[node name="FuelTank" parent="FuelTanks" instance=ExtResource( 9 )]
-
-[node name="FuelTank2" parent="FuelTanks" instance=ExtResource( 9 )]
-position = Vector2( 218.468, -57.1989 )
-
-[node name="FuelTank3" parent="FuelTanks" instance=ExtResource( 9 )]
-position = Vector2( 387.284, -24.2301 )
+[node name="TileMap" type="TileMap" parent="."]
+cell_size = Vector2( 16, 16 )
+format = 1
