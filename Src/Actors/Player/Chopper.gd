@@ -70,6 +70,13 @@ func count_nodes(nodename: String) -> int:
 			number += 1
 	return number
 
+
+# When chopper hits rocks, it has to die
+func _on_Area2D_body_entered(body) -> void:
+	if body.get_collision_layer_bit(3) == true:
+		self.die()
+
+
 # when die, stop camera, play animation TBD, etc.
 func die() -> void:
 	call_deferred("set", $CollisionShape2D.disabled, true ) 
@@ -77,4 +84,4 @@ func die() -> void:
 	Global.lives -= 1
 	queue_free()
 	get_tree().reload_current_scene()
-	
+

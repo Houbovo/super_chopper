@@ -11,7 +11,7 @@ var lives: int = 5 setget set_lives
 var fuel: float = 400 setget set_fuel
 const speed = 100
 const start_position = Vector2(100, 100)
-var fw_speed = 20
+var fw_speed = 30
 const chopper_size = Vector2(32, 16)
 var act_res: int = 0
 

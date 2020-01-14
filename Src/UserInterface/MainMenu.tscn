@@ -49,7 +49,6 @@ text = "Super Chopper"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 240, 70 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Label2" type="Label" parent="."]
