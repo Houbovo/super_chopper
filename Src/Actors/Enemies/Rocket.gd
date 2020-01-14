@@ -6,7 +6,8 @@ var speed: int = 100
 
 func _ready() -> void:
 	randomize()
-
+	$AnimatedSprite.play("stand")
+	
 
 func _physics_process(delta: float) -> void:
 	# when "unpaused" fly up
@@ -22,14 +23,15 @@ func _on_Area2D_body_entered(body) -> void:
 
 # fly with some probability after some time when enters screen
 func _on_VisibilityEnabler2D_screen_entered() -> void:
-	var fly_time: = int(rand_range(1, 40))
-	if fly_time < 20:
+	var fly_time: = rand_range(1, 10)
+	if fly_time < 8:
 		$FlyTimer.start( fly_time )
 
 
 # timer to fly
 func _on_FlyTimer_timeout() -> void:
 	fly = true
+	$AnimatedSprite.play("fly")
 
 
 func die() -> void:

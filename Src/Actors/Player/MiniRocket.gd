@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity: Vector2 = Vector2(200, 0)
-var grav: = 300
+var grav: = 200
 
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Area2D_body_entered(body) -> void:
-	if body != self:
+	if body != self and body.get_collision_layer_bit(0) == false:
 		if body.get_collision_layer_bit(1) == true:
 			body.die()
 		die()

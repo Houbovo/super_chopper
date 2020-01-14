@@ -15,9 +15,12 @@ func _on_Area2D_body_entered(body) -> void:
 
 # shoot with some probability after some time when enters screen
 func _on_VisibilityEnabler2D_screen_entered() -> void:
-	#var shoot_time: = int(rand_range(1, 40))
-	var shoot_time: = 10
-	if shoot_time < 20:
+	shoot_prepare()
+
+
+func shoot_prepare() -> void:
+	var shoot_time: = rand_range(1, 15 )
+	if shoot_time < 10:
 		$ShootTimer.start( shoot_time )
 
 
@@ -30,8 +33,8 @@ func _on_VisibilityEnabler2D_screen_exited() -> void:
 func _on_ShootTimer_timeout() -> void:
 	var Pbullet = Bullet.instance()
 	Pbullet.position = ($BulletPosition as Position2D).global_position
-	print(Pbullet.position)
 	get_parent().add_child(Pbullet)
+	shoot_prepare()
 
 
 func die() -> void:

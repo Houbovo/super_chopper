@@ -1,28 +1,44 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Actors/Enemies/Rocket.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Actors/Enemies/rocket.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Actors/Enemies/rocket_fly0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Actors/Enemies/rocket_fly1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Actors/Enemies/rocket.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "fly",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+} ]
 
 [node name="Rocket" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "fly"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( -3.95156, 7.78081, -4.0835, 3.88853, -2.17035, 1.7115, -2.17035, -6.99665, -0.12525, -8.11816, 1.98582, -7.1286, 2.11776, 1.84344, 4.03091, 4.08645, 4.09688, 7.78081 )
+polygon = PoolVector2Array( -4, 5, -4.0835, 3.88853, -2, 2, -3, -6, 0, -10, 3, -6, 2.11776, 1.84344, 4.03091, 4.08645, 4, 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4, 5, -4.0835, 3.88853, -2, 2, -3, -6, 0, -10, 3, -6, 2.11776, 1.84344, 4.03091, 4.08645, 4, 5 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 scale = Vector2( 0.538204, 0.894447 )
 process_parent = true
 physics_process_parent = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -3.95156, 7.78081, -4.0835, 3.88853, -2.17035, 1.7115, -2.17035, -6.99665, -0.12525, -8.11816, 1.98582, -7.1286, 2.11776, 1.84344, 4.03091, 4.08645, 4.09688, 7.78081 )
 
 [node name="FlyTimer" type="Timer" parent="."]
 one_shot = true

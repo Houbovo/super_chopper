@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var Bullet = preload("res://Src/Actors/Player/Bullet.tscn")
 var MiniRocket = preload("res://Src/Actors/Player/MiniRocket.tscn")
-var fuel_comsum: int = 10
+var fuel_comsum: float = Global.max_fuel / 20
 
 
 func _ready() -> void:
@@ -59,7 +59,7 @@ func minirocket_shoot() -> void:
 			var minirocket = MiniRocket.instance()
 			minirocket.position = ($MiniRocketPosition as Position2D).global_position
 			get_parent().add_child(minirocket)
-			$MiniRocketTimer.start(0.3)
+			$MiniRocketTimer.start(0.4)
 
 
 # get number of bullets/minirockets from level node

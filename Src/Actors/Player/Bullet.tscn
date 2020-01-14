@@ -8,12 +8,13 @@
 extents = Vector2( 1.48394, 0.495247 )
 
 [node name="Bullet" type="KinematicBody2D"]
-collision_layer = 4
-collision_mask = 27
+collision_mask = 11
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.50928, -0.489215 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

@@ -14,6 +14,6 @@ func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:
 
 # when hit, add fuel to chopper
 func die() -> void:
-	Global.fuel += 100
+	Global.fuel += 20
 	Global.score += 50
 	queue_free()

@@ -1,39 +1,49 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/UserInterface/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Misc/prstartk.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Actors/Chopper/fly-0.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Actors/Chopper/fly-1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Actors/Chopper/fly0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Actors/Chopper/fly1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Actors/Chopper/fly2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Actors/Chopper/fly3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Misc/prstartk.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 2 )
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
-"speed": 10.0
+"speed": 20.0
 } ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 8
-font_data = ExtResource( 2 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 8
-font_data = ExtResource( 2 )
+font_data = ExtResource( 6 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 612.18 ]
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 12.1187, 6.85336 )
 color = Color( 0.309804, 0.423529, 0.643137, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 240, 63.9342 )
+frames = SubResource( 1 )
+playing = true
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -43,13 +53,8 @@ margin_top = 25.0
 margin_right = 104.0
 margin_bottom = 41.0
 grow_horizontal = 2
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Super Chopper"
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 240, 70 )
-frames = SubResource( 2 )
-playing = true
 
 [node name="Label2" type="Label" parent="."]
 anchor_left = 0.5

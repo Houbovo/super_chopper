@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fly-0.png-df7ac35674d26933cdb0b3f2e238465b.stex"
+path="res://.import/fly0.png-63a11ab256adba065bd715f4dfd65021.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Actors/Chopper/fly-0.png"
-dest_files=[ "res://.import/fly-0.png-df7ac35674d26933cdb0b3f2e238465b.stex" ]
+source_file="res://Assets/Actors/Chopper/fly0.png"
+dest_files=[ "res://.import/fly0.png-63a11ab256adba065bd715f4dfd65021.stex" ]
 
 [params]
 
