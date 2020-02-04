@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var Bullet = preload("res://Src/Actors/Player/Bullet.tscn")
 var MiniRocket = preload("res://Src/Actors/Player/MiniRocket.tscn")
-var fuel_comsum: float = Global.max_fuel / 20
+var fuel_comsum: float = Global.max_fuel / 15
 
 
 func _ready() -> void:

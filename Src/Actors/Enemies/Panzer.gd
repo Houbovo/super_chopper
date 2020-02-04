@@ -31,6 +31,7 @@ func _on_VisibilityEnabler2D_screen_exited() -> void:
 
 # shoot if should
 func _on_ShootTimer_timeout() -> void:
+	$Sprite/AnimationPlayer.play("Shooting")
 	var Pbullet = Bullet.instance()
 	Pbullet.position = ($BulletPosition as Position2D).global_position
 	get_parent().add_child(Pbullet)
