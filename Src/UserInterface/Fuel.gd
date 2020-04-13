@@ -15,7 +15,7 @@ func _ready() -> void:
 func update_fuel() -> void:
 	var fuel: float = Global.fuel
 	$FuelBar.value = fuel
-	if fuel > Global.max_fuel / 2:
+	if fuel > Global.max_fuel / 4:
 		$FuelBar.texture_progress = bar_green
 	if fuel <= Global.max_fuel / 4:
 		$FuelBar.texture_progress = bar_yellow

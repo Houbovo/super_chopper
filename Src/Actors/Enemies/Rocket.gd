@@ -6,7 +6,7 @@ var speed: int = 100
 
 func _ready() -> void:
 	randomize()
-	$AnimatedSprite.play("stand")
+	$Sprite.frame = 0
 	
 
 func _physics_process(delta: float) -> void:
@@ -31,9 +31,12 @@ func _on_VisibilityEnabler2D_screen_entered() -> void:
 # timer to fly
 func _on_FlyTimer_timeout() -> void:
 	fly = true
-	$AnimatedSprite.play("fly")
+	$Sprite/AnimationPlayer.play("Flying")
 
 
 func die() -> void:
 	Global.score += 100
+	$FlyTimer.stop()
+	$Sprite/AnimationPlayer.play("Dying")
+	yield($Sprite/AnimationPlayer, "animation_finished")
 	queue_free()

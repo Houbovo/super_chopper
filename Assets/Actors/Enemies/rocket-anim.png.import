@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fly1.png-88b6b67a69bc9667d55d1860fbe39572.stex"
+path="res://.import/rocket-anim.png-9be69885f1f23688ecdd433e9a181717.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Actors/Chopper/fly1.png"
-dest_files=[ "res://.import/fly1.png-88b6b67a69bc9667d55d1860fbe39572.stex" ]
+source_file="res://Assets/Actors/Enemies/rocket-anim.png"
+dest_files=[ "res://.import/rocket-anim.png-9be69885f1f23688ecdd433e9a181717.stex" ]
 
 [params]
 

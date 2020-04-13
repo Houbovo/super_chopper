@@ -16,22 +16,18 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2( 0.166084, -0.664333 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0.166084, -0.664333 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-visible = false
 position = Vector2( 0.913458, -0.249126 )
 scale = Vector2( 1.34047, 1.25743 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

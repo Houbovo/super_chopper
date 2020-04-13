@@ -7,7 +7,8 @@ var fuel_comsum: float = Global.max_fuel / 15
 
 func _ready() -> void:
 	position = Global.start_position
-	$AnimatedSprite.play()
+	$Sprite/AnimationPlayer.play("Flying")
+	#$AnimatedSprite.play()
 	($SoundFly as AudioStreamPlayer2D).play()
 	show()
 
@@ -79,8 +80,10 @@ func _on_Area2D_body_entered(body) -> void:
 
 # when die, stop camera, play animation TBD, etc.
 func die() -> void:
-	call_deferred("set", $CollisionShape2D.disabled, true ) 
-#	Global.fw_speed = 0
+	call_deferred("set", $CollisionShape2D.disabled, true )
+	Global.fw_speed = 0
+	$Sprite/AnimationPlayer.play("Dying")
+	yield($Sprite/AnimationPlayer, "animation_finished")
 	Global.lives -= 1
 	queue_free()
 	get_tree().reload_current_scene()

@@ -4,7 +4,7 @@ var res_arr = [Vector2(480, 270), Vector2(960, 540), Vector2(1920, 1080)]
 var next_scene_path: = "res://Src/Levels/Level01.tscn"
 
 func _ready() -> void:
-	print("main menu")
+	$Sprite/AnimationPlayer.play("Flying")
 
 
 func _input(event):

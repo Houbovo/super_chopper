@@ -4,6 +4,7 @@ var Bullet = preload("res://Src/Actors/Enemies/PanzerBullet.tscn")
 
 
 func _ready() -> void:
+	$Sprite.frame = 0
 	randomize()
 
 
@@ -40,4 +41,7 @@ func _on_ShootTimer_timeout() -> void:
 
 func die() -> void:
 	Global.score += 100
+	$ShootTimer.stop()
+	$Sprite/AnimationPlayer.play("Dying")
+	yield($Sprite/AnimationPlayer, "animation_finished")
 	queue_free()
