@@ -9,8 +9,9 @@ func _ready() -> void:
 	position = Global.start_position
 	$Sprite/AnimationPlayer.play("Flying")
 	#$AnimatedSprite.play()
-	($SoundFly as AudioStreamPlayer2D).play()
+	#($SoundFly as AudioStreamPlayer2D).play()
 	show()
+	set_physics_process(true)
 
 
 func _physics_process(delta: float) -> void:
@@ -80,6 +81,7 @@ func _on_Area2D_body_entered(body) -> void:
 
 # when die, stop camera, play animation TBD, etc.
 func die() -> void:
+	set_physics_process(false)
 	call_deferred("set", $CollisionShape2D.disabled, true )
 	Global.fw_speed = 0
 	$Sprite/AnimationPlayer.play("Dying")

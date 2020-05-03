@@ -3,9 +3,10 @@
 [ext_resource path="res://Src/Actors/Enemies/Panzer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Actors/Enemies/panzer-anim.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Dying"
-length = 0.3
+length = 0.15
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -13,14 +14,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
+"times": PoolRealArray( 0, 0.05, 0.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Shooting"
+[sub_resource type="Animation" id=2]
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
@@ -56,13 +56,14 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 5
+frame = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/Dying = SubResource( 2 )
-anims/Shooting = SubResource( 1 )
+anims/Dying = SubResource( 1 )
+anims/Shooting = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0.397179, 0.20789 )
