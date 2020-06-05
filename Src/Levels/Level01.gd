@@ -1,7 +1,7 @@
 extends Node2D
 
-var next_scene_path: = preload("res://Src/Levels/Level02.tscn")
-
+var next_scene_path: = preload("res://Src/Levels/Level02-pre.tscn")
+var next_level:= "res://Src/Levels/Level02.tscn"
 
 func _ready() -> void:
 	Global.next_level = next_scene_path
@@ -11,4 +11,5 @@ func _ready() -> void:
 
 
 func _on_LevelTimer_timeout() -> void:
+	Status.next_level = next_level
 	get_tree().change_scene_to(next_scene_path)

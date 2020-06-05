@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/UserInterface/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Src/UserInterface/StatusBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Misc/prstartk.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Actors/Chopper/chopper-anim.png" type="Texture" id=7]
 
@@ -80,9 +81,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -92.0
-margin_top = -42.0
+margin_top = -43.0
 margin_right = 92.0
-margin_bottom = -12.0
+margin_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 3 )
@@ -97,50 +98,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -96.0
-margin_top = 20.0
+margin_top = 13.0
 margin_right = 96.0
-margin_bottom = 39.0
+margin_bottom = 43.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 4 )
 text = "Arrows/WASD to move
-Space/Z/X/Enter to shoot"
+Space/Z/X/Enter to shoot
+Joypad"
 align = 1
-
-[node name="KeysLeft" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -230.0
-margin_top = 65.0
-margin_right = -30.0
-margin_bottom = 95.0
-grow_horizontal = 2
-custom_fonts/font = SubResource( 4 )
-text = "1 - change screen size
-2 - mute music
-3 - mute sounds"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="KeysRight" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 30.0
-margin_top = 65.0
-margin_right = 230.0
-margin_bottom = 95.0
-grow_horizontal = 2
-custom_fonts/font = SubResource( 4 )
-text = "4 - toggle autofire
-
-6 - quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="StatusBar" parent="." instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_top = 190.0
+margin_right = -40.6203
+margin_bottom = -38.1977
 
 [node name="Jiri" type="Label" parent="."]
 anchor_left = 0.5

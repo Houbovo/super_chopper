@@ -14,7 +14,7 @@ const speed = 100
 const start_position = Vector2(100, 100)
 var fw_speed = 80
 const chopper_size = Vector2(32, 16)
-var act_res: int = 0
+# var act_res: int = 0
 var next_level
 
 

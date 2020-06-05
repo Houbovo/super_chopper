@@ -44,20 +44,21 @@ centered = false
 
 [node name="TreesBgLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.5, 1 )
-motion_mirroring = Vector2( 400, 0 )
+motion_mirroring = Vector2( 500, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/TreesBgLayer"]
-position = Vector2( -2, 182 )
+position = Vector2( 0, 182 )
 texture = ExtResource( 11 )
 centered = false
 
 [node name="TreesFgLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.7, 1 )
-motion_mirroring = Vector2( 443, 0 )
+motion_mirroring = Vector2( 500, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/TreesFgLayer"]
-position = Vector2( 220, 213 )
+position = Vector2( 0, 183 )
 texture = ExtResource( 13 )
+centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
