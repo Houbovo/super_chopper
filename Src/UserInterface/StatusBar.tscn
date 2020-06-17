@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Misc/prstartk.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Src/UserInterface/StatusBar.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 1 )
+
+[node name="StatusBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -80.0
+margin_bottom = -230.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftContainer" type="VBoxContainer" parent="."]
+
+[node name="1" type="Label" parent="LeftContainer"]
+margin_right = 176.0
+margin_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "1 - change screen size"
+
+[node name="2" type="Label" parent="LeftContainer"]
+margin_top = 12.0
+margin_right = 176.0
+margin_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "2 - mute music"
+
+[node name="3" type="Label" parent="LeftContainer"]
+margin_top = 24.0
+margin_right = 176.0
+margin_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "3 - mute sounds"
+
+[node name="RightContainer" type="VBoxContainer" parent="."]
+margin_left = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Label" parent="RightContainer"]
+margin_right = 152.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 2 )
+text = "4 - toggle autofire"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="Label" parent="RightContainer"]
+margin_top = 12.0
+margin_right = 152.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="6" type="Label" parent="RightContainer"]
+margin_top = 24.0
+margin_right = 152.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "6 - quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}

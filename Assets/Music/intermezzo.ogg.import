@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intermezzo.ogg-a32abc8230ea477c27bb2998c320cf8b.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/intermezzo.ogg"
+dest_files=[ "res://.import/intermezzo.ogg-a32abc8230ea477c27bb2998c320cf8b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
